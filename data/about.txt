@@ -1,0 +1,20 @@
+Di bawah ini adalah penjelasan singkat tentang masing-masing kolom:
+No: Nomor urut atau indeks yang digunakan untuk mengidentifikasi setiap baris data dalam dataset. Ini adalah kolom indeks.
+year: Tahun pengukuran. Ini adalah kolom yang mencatat tahun ketika data kualitas udara diambil.
+month: Bulan pengukuran. Ini adalah kolom yang mencatat bulan ketika data diambil.
+day: Hari pengukuran. Ini adalah kolom yang mencatat tanggal ketika data diambil.
+hour: Jam pengukuran. Ini adalah kolom yang mencatat waktu dalam sehari ketika pengukuran dilakukan.
+PM2.5: Partikel Matter dengan diameter kurang dari 2.5 mikrometer. Ini adalah kolom yang mencatat konsentrasi partikel PM2.5 dalam udara, yang sering kali menjadi indikator penting dari polusi udara yang berbahaya.
+PM10: Partikel Matter dengan diameter kurang dari 10 mikrometer. Ini adalah kolom yang mencatat konsentrasi partikel PM10 dalam udara, yang juga merupakan indikator polusi udara.
+SO2: Dioksida belerang (Sulfur Dioxide). Ini adalah kolom yang mencatat konsentrasi gas SO2 dalam udara, yang dapat berasal dari berbagai sumber seperti pembakaran bahan bakar fosil.
+NO2: Dioksida nitrogen (Nitrogen Dioxide). Ini adalah kolom yang mencatat konsentrasi gas NO2 dalam udara, yang sering kali berasal dari aktivitas lalu lintas dan industri.
+CO: Karbon Monoksida. Ini adalah kolom yang mencatat konsentrasi gas CO dalam udara, yang juga dapat berasal dari berbagai sumber, termasuk kendaraan bermotor.
+O3: Ozon. Ini adalah kolom yang mencatat konsentrasi ozon dalam udara, yang dapat berasal dari reaksi kimia antara polutan lainnya di udara dan cahaya matahari.
+TEMP: Suhu udara pada saat pengukuran.
+PRES: Tekanan udara pada saat pengukuran.
+DEWP: Titik embun. Ini adalah kolom yang mencatat suhu di mana udara akan jenuh dengan kelembaban dan uap air akan mulai mengembun.
+RAIN: Jumlah hujan yang terjadi pada saat pengukuran.
+wd: Arah angin pada saat pengukuran.
+WSPM: Kecepatan angin pada saat pengukuran.
+station: Nama atau kode stasiun pengukuran kualitas udara di lokasi tertentu.
+Data ini sering digunakan untuk analisis lingkungan, pemantauan polusi udara, dan penelitian ilmiah untuk memahami tren dan dampak polusi udara terhadap kesehatan manusia dan lingkungan.
