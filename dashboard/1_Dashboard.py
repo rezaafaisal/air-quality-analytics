@@ -3,6 +3,7 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import plotly.express as px
 
 
 # style
@@ -48,8 +49,10 @@ with st.container():
 
 with st.container():
     st.caption("Total Jumlah Polusi")
-    df = pd.DataFrame(
-    np.random.randn(5, 7),
-    columns=['Station', 'PM2.5','PM10', 'SO2', 'NO2', 'CO', 'O3']).set_index('Station')
-    st.table(df)
+    df = pd.DataFrame({
+    'pollution': ['PM2.5','PM10', 'SO2', 'NO2', 'CO', 'O3'],
+    'value': [324, 343, 445, 987, 264, 121]}).sort_values(by='value', ascending=True).set_index('pollution')
+    
+    fig=px.bar(df, x='value', y=df.index, orientation='h')
+    st.write(fig)
     
