@@ -48,7 +48,7 @@ with st.container():
     st.line_chart(np.random.randn(12, 2))
 
 with st.container():
-    st.caption("Total Jumlah Polusi")
+    st.write("Total Jumlah Polusi")
     df = pd.DataFrame({
     'pollution': ['PM2.5','PM10', 'SO2', 'NO2', 'CO', 'O3'],
     'value': [324, 343, 445, 987, 264, 121]}).sort_values(by='value', ascending=True).set_index('pollution')
