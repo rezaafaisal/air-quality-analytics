@@ -15,7 +15,7 @@ with col_2:
                 <a href='https://instagram.com/rezaa.faisal' style='margin-right:5px;' target='_blank'>
                     <img src='https://raw.githubusercontent.com/rezaafaisal/source/main/instagram.png' height='20px' width='20px'>
                 </a>
-                <a href='https://instagram.com/rezaa.faisal' target='_blank'>
+                <a href='https://linkedin.com/in/rezafaisal' target='_blank'>
                     <img src='https://raw.githubusercontent.com/rezaafaisal/source/main/linkedin.png' height='20px' width='20px'>
                 </a>
              </div>
