@@ -1,14 +1,13 @@
-# Dicoding Collection Dashboard ✨
+# Air Quality Dashboard ✨
 
 ## Setup environment
 ```
-conda create --name main-ds python=3.9
+conda create --name main-ds python=3.11
 conda activate main-ds
-pip install numpy pandas scipy matplotlib seaborn jupyter streamlit babel
+pip install numpy pandas scipy matplotlib jupyter streamlit plotly-express
 ```
 
 ## Run steamlit app
 ```
-streamlit run dashboard.py
+streamlit run dashboard/1_Dashboard.py
 ```
-
