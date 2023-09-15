@@ -1,10 +1,13 @@
 import numpy as np
 import pandas as pd
-
-all_data = pd.read_csv("../all_data.csv")
-all_data['datetime'] = pd.to_datetime(all_data['datetime'])
+import os
+ 
+# get current directory
+path = os.path.join(os.getcwd(), 'all_data.csv')
+all_data = pd.read_csv(path)
 
 # convert month name function
+month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 def number_to_month(month_number):
     month_names = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
     return month_names[month_number - 1]
@@ -31,6 +34,10 @@ def get_station(df):
     station = df['station'].unique()
     return station
 
+# ambil list polusi
+def get_pollutan():
+    return ["PM2.5", "PM10", "SO2", "NO2", "CO", "O3"]
+
 # dashboard needeed
 # ambil rata-rata polusi kendaraan
 def average_vehicle(df, year, station):
@@ -49,7 +56,7 @@ def average_industry(df, year, station):
     return round(average, 2)
 
 # rata rata temperatur
-def dahboard_bar(df, year, station):
+def dashboard_bar(df, year, station):
     new_df = df[(df['year'] == year) & (df['station'] == station)]
     new_df = new_df.rename(columns={"TEMP": "temp", "WSPM": "wind"})
     average = new_df.agg({
@@ -65,6 +72,7 @@ def get_average_vehicle_by_year(df, year, station):
         'vehicle_pollution': 'mean'
     })  
     average_vehicle.index = [number_to_month(month) for month in average_vehicle.index]
+    average_vehicle.reset_index(drop=True)
     return round(average_vehicle, 2)
 
 # ambil rata-rata polusi industri
@@ -76,12 +84,31 @@ def get_average_industry_by_year(df, year, station):
     average_pollution.index = [number_to_month(month) for month in average_pollution.index]
     return round(average_pollution, 2)
 
+# rata-rata pollutan
+def pollutan_by_year(df, station, year):
+    new_df = df[(df['station'] == station) & (df['year'] == year)]
+    pollutan = new_df.agg({
+        "PM2.5": "mean",
+        "PM10": "mean",
+        "SO2": "mean",
+        "NO2": "mean",
+        "CO": "mean",
+        "O3": "mean"
+    }).sort_values(ascending=False)
+    
+    return round(pollutan, 2)
+
 # by yearly
 # yearly pollutan
-def yearly_pollution(df, pollutan, station, year):
+def yearly_pollution(df, station, year):
     new_df = df[(df['station'] == station) & (df['year'] == year)]
     pollutan = new_df.groupby(by='month').agg({
-        pollutan: 'mean'
+        "PM2.5": "mean",
+        "PM10": "mean",
+        "SO2": "mean",
+        "NO2": "mean",
+        "CO": "mean",
+        "O3": "mean"
     })
     pollutan.index = [number_to_month(month) for month in pollutan.index]
     return round(pollutan, 2)
@@ -95,17 +122,22 @@ def yearly_bar(df, station, year):
         'rain': 'mean',
         'wind': 'mean'
     })
-    return ound(info.temp, 1), round(info.rain, 3), round(info.wind, 1)
+    return round(info.temp, 1), round(info.rain, 3), round(info.wind, 1)
 
 
 # by month
 # monthly pollutan
-def monthly_pollutan(df, pollutan, station, year, month):
+def monthly_pollutan(df, station, year, month):
     # convert name to number
     month = month_to_number(month)
     new_df = df[(df['station'] == station) & (df['year'] == year) & (df['month'] == month)]
     pollutan = new_df.groupby(by='day').agg({
-        pollutan: 'mean'
+        "PM2.5": "mean",
+        "PM10": "mean",
+        "SO2": "mean",
+        "NO2": "mean",
+        "CO": "mean",
+        "O3": "mean"
     })
     return round(pollutan, 2)
 
